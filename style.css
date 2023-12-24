@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: darkslategrey;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("../fonts/Gilroy-Semibold.ttf");
+}
+
+.container {
+  position: relative;
+  width: 800px;
+  border: solid 2px bisque;
+  margin:20px auto 20px auto;
+  text-align: center;
+}
+
+.container-text {
+  font-family: Gilroy, sans-serif;
+  color: bisque;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.table-container {
+  display: table;
+  border: 2px solid bisque;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border-spacing: 10px;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+  width: 300px;
+  height: 467px;
+}
+
+.table-cell-one {
+  background-image: url(img/arabicСalculator.png);
+}
+
+.table-cell-two {
+  background-image: url(img/romanCalculator.png);
+}
+
+.table-arabic-calculator {
+  position: absolute;
+  left: 117px;
+  top: 116px;
+  border-collapse: collapse;
+  border: thin solid;
+}
+
+.table-roman-calculator {
+  position: absolute;
+  left: 425px;
+  top: 116px;
+  border-collapse: collapse;
+  border: thin solid;
+}
+
+td {
+  width: 64px;
+  height: 67px;
+  border: thin solid;
+}
+
+#result-arabic-calculator, #result-roman-calculator {
+  font-family: Gilroy, sans-serif;
+  color: white;
+  font-size: xx-large;
+  border-width: 0px;
+}
+
+#result-roman-calculator {
+  font-family: serif;
+}
+
+.reset-button-cell-arabic, .reset-button-cell-roman {
+  text-align: center;
+}
+
+.reset-button {
+  font-family: Gilroy, sans-serif;
+  font-size: x-large;
+  color: white;
+  width: 55px;
+  height: 55px;
+  background-color: #F09C32;
+  border-radius: 90px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+

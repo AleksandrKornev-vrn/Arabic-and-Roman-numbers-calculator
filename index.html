@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Калькулятор арабских и римских чисел</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="container-text">Калькулятор арабских и римских чисел</h1>
+      <div class="table-container">
+        <div class="table-row">
+          <div class="table-cell table-cell-one"></div>
+          <div class="table-cell table-cell-two"></div>
+        </div>
+      </div>
+      <table class="table-arabic-calculator">
+        <tr>
+          <td colspan="4" id="result-arabic-calculator"></td>
+        </tr>
+        <tr>
+          <td class="empty-cell-one"></td>
+          <td class="empty-cell-two"></td>
+          <td valign="bottom" class="reset-button-cell-arabic"><div class="reset-button">C</div></td>
+          <td class="/"></td>
+        </tr>
+        <tr>
+          <td class="7"></td>
+          <td class="8"></td>
+          <td class="9"></td>
+          <td class="*"></td>
+        </tr>
+        <tr>
+          <td class="4"></td>
+          <td class="5"></td>
+          <td class="6"></td>
+          <td class="-"></td>
+        </tr>
+        <tr>
+          <td class="1"></td>
+          <td class="2"></td>
+          <td class="3"></td>
+          <td class="+"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="0"></td>
+          <td class="cell-with-a-point"></td>
+          <td class="="></td>
+        </tr>
+      </table>
+      <table class="table-roman-calculator">
+        <tr>
+          <td colspan="4" id="result-roman-calculator"></td>
+        </tr>
+        <tr>
+          <td class="empty-cell-three"></td>
+          <td class="empty-cell-four"></td>
+          <td valign="bottom" class="reset-button-cell-roman"><div class="reset-button">C</div></td>
+          <td class="/"></td>
+        </tr>
+        <tr>
+          <td class="I"></td>
+          <td class="II"></td>
+          <td class="III"></td>
+          <td class="*"></td>
+        </tr>
+        <tr>
+          <td class="IV"></td>
+          <td class="V"></td>
+          <td class="VI"></td>
+          <td class="-"></td>
+        </tr>
+        <tr>
+          <td class="VII"></td>
+          <td class="VIII"></td>
+          <td class="IX"></td>
+          <td class="+"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="X"></td>
+          <td class="cell-with-a-point"></td>
+          <td class="="></td>
+        </tr>
+      </table>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/calculator.js"></script>
+  </body>
+</html>
