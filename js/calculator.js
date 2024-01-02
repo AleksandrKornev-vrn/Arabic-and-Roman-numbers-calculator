@@ -6,6 +6,8 @@
     //Определяем массив возможных римских цифр
     var romanNumbers = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
+    var romanNumberMap = {};
+
     //Определяем массив со значениями возможных операторов
     var arithmeticOperators = ["+", "-", "*", "/"];
 
@@ -27,7 +29,7 @@
     //Вводим переменную результат
     var rezult = "";
 
-    //Определяем функцию, вычисляющую результат
+    //Определяем функцию, вычисляющую числовой результат
     var rezultCalculate = function (valueOperator, operand1, operand2) {
       switch (valueOperator) {
         case "+":
