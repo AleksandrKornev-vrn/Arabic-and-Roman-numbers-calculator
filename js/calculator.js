@@ -6,7 +6,19 @@
     //Определяем массив возможных римских цифр
     var romanNumbers = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
-    var romanNumberMap = {};
+    //Определяем мапку римских чисел
+    var romanNumbersMap = {
+      "I": 1,
+      "II": 2,
+      "III": 3,
+      "IV": 4,
+      "V": 5,
+      "VI": 6,
+      "VII": 7,
+      "VIII": 8,
+      "IX": 9,
+      "X": 10
+    };
 
     //Определяем массив со значениями возможных операторов
     var arithmeticOperators = ["+", "-", "*", "/"];
@@ -44,6 +56,10 @@
         case "/":
           return Math.floor(operand1 / operand2);
           break;
+        default:
+          throw new Error(
+            "Ошибка! Формат математической операции не удовлетворяет заданию"
+          );
       }
     };
 
@@ -51,24 +67,17 @@
     var calculateRomanResult = function () {
       //Начинаем с проверки что введены числа от I до X
       if (
-        romanNumbers.indexOf(operands[0].trim()) < 0 ||
-        romanNumbers.indexOf(operands[1].trim()) < 0
+        !romanNumbers.includes(operands[0].trim()) ||
+        !romanNumbers.includes(operands[1].trim())
       ) {
         throw new Error(
           "Ошибка! Формат математической операции не удовлетворяет заданию - числа от I до X!"
         );
-      }
-      //Если всё ОК, продолжаем
-      else {
+      } else {//Если всё ОК, продолжаем
         //Переводим значение римских цифр в арабские
-        for (var i = 0; i < romanNumbers.length; i++) {
-          if (operands[0].trim() === romanNumbers[i]) {
-            firstOperand = arabicNumbers[i];
-          }
-          if (operands[1].trim() === romanNumbers[i]) {
-            secondOperand = arabicNumbers[i];
-          }
-        }
+        firstOperand = romanNumbersMap[operands[0].trim()];
+        secondOperand = romanNumbersMap[operands[1].trim()];
+
         //Вычисляем результат
         var rezultNumber = rezultCalculate(operator, firstOperand, secondOperand);
         //Далее приводим результат к римским цифрам
@@ -92,14 +101,12 @@
       secondOperand = +operands[1];
       //Проверка что числа лежат в диапазоне от 1 до 10
       if (
-        arabicNumbers.indexOf(firstOperand) < 0 || arabicNumbers.indexOf(secondOperand) < 0
+        !arabicNumbers.includes(firstOperand) || !arabicNumbers.includes(secondOperand)
       ) {
         throw new Error (
           "Ошибка! Формат математической операции не удовлетворяет заданию - числа от 1 до 10!"
         );
-      }
-      //Если всё ОК, вычисляем результат
-      else {
+      } else {//Если всё ОК, вычисляем результат
         var rezultNumber = rezultCalculate(operator, firstOperand, secondOperand);
         rezult = String(rezultNumber);
       }
@@ -107,7 +114,7 @@
 
     //Определяем значение оператора
     for (var i = 0; i < string.length; i++) {
-      if (arithmeticOperators.indexOf(string[i]) >= 0) {
+      if (arithmeticOperators.includes(string[i])) {
         operator = arithmeticOperators[arithmeticOperators.indexOf(string[i])];
         foundOperators.push(operator);
       }
@@ -120,27 +127,20 @@
       throw new Error(
         "Ошибка! Формат математической операции не удовлетворяет заданию - два операнда и один оператор!"
       );
-    }
-
-    //Если с оператором всё в порядке и длина строки не меньше возможной продолжаем работу:
-    else {
+    } else {//Если с оператором всё в порядке и длина строки не меньше возможной продолжаем работу:
       //Создаём строковый массив операндов
       operands = string.split(operator);
 
       //Выполняем проверку, что все операнды находятся в одной системе счисления
       if (
-        (arabicNumbers.indexOf(+operands[0]) >= 0 && romanNumbers.indexOf(operands[1].trim()) >= 0) ||
-        (romanNumbers.indexOf(operands[0].trim()) >= 0 && arabicNumbers.indexOf(+operands[1]) >= 0)
+        (arabicNumbers.includes(+operands[0]) && romanNumbers.includes(operands[1].trim())) ||
+        (romanNumbers.includes(operands[0].trim()) && arabicNumbers.includes(+operands[1]))
       ) {throw new Error ("Ошибка! Используются одновременно разные системы счисления!");
-      }
-      //Если операнды находятся в одной системе вычисляем результат:
-      else {
+      } else {//Если операнды находятся в одной системе вычисляем результат:
         //Римский результат
-        if (isNaN(+operands[0])) {
+        if (romanNumbers.includes(operands[0].trim())) {
           calculateRomanResult();
-        }
-        //Арабский результат
-        else {
+        } else {//Арабский результат
           calculateArabicResult();
         }
       }
