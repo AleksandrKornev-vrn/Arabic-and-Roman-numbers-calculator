@@ -8,16 +8,16 @@
 
     //Определяем мапку римских чисел
     var romanNumbersMap = {
-      "I": 1,
-      "II": 2,
-      "III": 3,
-      "IV": 4,
-      "V": 5,
-      "VI": 6,
-      "VII": 7,
-      "VIII": 8,
-      "IX": 9,
-      "X": 10
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 5,
+      VI: 6,
+      VII: 7,
+      VIII: 8,
+      IX: 9,
+      X: 10,
     };
 
     //Определяем массив со значениями возможных операторов
@@ -73,7 +73,8 @@
         throw new Error(
           "Ошибка! Формат математической операции не удовлетворяет заданию - числа от I до X!"
         );
-      } else {//Если всё ОК, продолжаем
+      } else {
+        //Если всё ОК, продолжаем
         //Переводим значение римских цифр в арабские
         firstOperand = romanNumbersMap[operands[0].trim()];
         secondOperand = romanNumbersMap[operands[1].trim()];
@@ -103,10 +104,11 @@
       if (
         !arabicNumbers.includes(firstOperand) || !arabicNumbers.includes(secondOperand)
       ) {
-        throw new Error (
+        throw new Error(
           "Ошибка! Формат математической операции не удовлетворяет заданию - числа от 1 до 10!"
         );
-      } else {//Если всё ОК, вычисляем результат
+      } else {
+        //Если всё ОК, вычисляем результат
         var rezultNumber = rezultCalculate(operator, firstOperand, secondOperand);
         rezult = String(rezultNumber);
       }
@@ -118,7 +120,7 @@
         operator = arithmeticOperators[arithmeticOperators.indexOf(string[i])];
         foundOperators.push(operator);
       }
-    };
+    }
 
     //Выполняем проверку соответствия оператора и длины получаемой строки условиям:
     if (operator === undefined) {
@@ -127,7 +129,8 @@
       throw new Error(
         "Ошибка! Формат математической операции не удовлетворяет заданию - два операнда и один оператор!"
       );
-    } else {//Если с оператором всё в порядке и длина строки не меньше возможной продолжаем работу:
+    } else {
+      //Если с оператором всё в порядке и длина строки не меньше возможной продолжаем работу:
       //Создаём строковый массив операндов
       operands = string.split(operator);
 
@@ -135,12 +138,17 @@
       if (
         (arabicNumbers.includes(+operands[0]) && romanNumbers.includes(operands[1].trim())) ||
         (romanNumbers.includes(operands[0].trim()) && arabicNumbers.includes(+operands[1]))
-      ) {throw new Error ("Ошибка! Используются одновременно разные системы счисления!");
-      } else {//Если операнды находятся в одной системе вычисляем результат:
+      ) {
+        throw new Error(
+          "Ошибка! Используются одновременно разные системы счисления!"
+        );
+      } else {
+        //Если операнды находятся в одной системе вычисляем результат:
         //Римский результат
         if (romanNumbers.includes(operands[0].trim())) {
           calculateRomanResult();
-        } else {//Арабский результат
+        } else {
+          //Арабский результат
           calculateArabicResult();
         }
       }
